@@ -38,7 +38,7 @@ const orders: OrderTypes[] = [
   <form class="grid grid-cols-1 gap-8 xl:grid-cols-2" action="">
     <div class="bg-gray-25 xl:order-2">
       <div class="md:mx-auto md:w-full md:max-w-[32rem]">
-        <div class="border-b border-b-gray-200 px-4 pt-8">
+        <div class="px-4 pt-8">
           <h3>Order summary</h3>
 
           <div class="order-summary">
@@ -80,6 +80,67 @@ const orders: OrderTypes[] = [
               ))
             }
           </div>
+        </div>
+      </div>
+
+      <div class="border-t border-t-gray-200 py-8">
+        <div class="flex flex-col gap-8 px-4 md:mx-auto md:w-full md:max-w-[32rem] md:px-0">
+          <div class="flex w-full items-end gap-3">
+            <div class="flex grow flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-700" for="coupon-code">
+                Coupon code
+              </label>
+              <input
+                class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+                id="coupon-code"
+                type="text"
+              />
+            </div>
+            <button
+              class="shrink-0 rounded-lg border border-brand-600 bg-brand-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:border-brand-700 hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+              type="button"
+            >
+              Apply voucher
+            </button>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Subtotal</p>
+            <p>€107.35</p>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p class="flex items-center gap-2">
+              <span>Discount</span>
+              <span
+                class="rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-700"
+              >
+                20JOAQUIN
+              </span>
+            </p>
+            <p>€96.62</p>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Shipping fee</p>
+            <p>Free</p>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Total</p>
+            <p>€96.62</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-t-gray-200">
+        <div class="px-4 py-8 md:mx-auto md:w-full md:max-w-[32rem] md:px-0">
+          <button
+            class="block w-full rounded-lg border border-brand-600 bg-brand-600 px-4.5 py-3 text-md font-semibold text-white shadow-xs transition hover:border-brand-700 hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+            type="button"
+          >
+            Pay €96.62
+          </button>
         </div>
       </div>
     </div>
