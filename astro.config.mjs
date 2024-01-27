@@ -30,7 +30,17 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          assetFileNames: 'assets/[name].[hash].[ext]',
+          assetFileNames: (info) => {
+            let extension = info.name.split('.').at(1)
+
+            if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extension)) {
+              extension = 'images'
+            } else if (/css/i.test(extension)) {
+              return 'assets/app.[hash].[ext]'
+            }
+
+            return `assets/${extension}/[name].[extname]`
+          },
           // chunkFileNames: 'assets/[name].[hash].js',
           entryFileNames: 'assets/[name].[hash].js',
         },
