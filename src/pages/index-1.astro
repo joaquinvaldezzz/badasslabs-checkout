@@ -1,5 +1,8 @@
 ---
 import DefaultLayout from '~/layouts/DefaultLayout.astro'
+import ApplePayLogo from '~/components/ApplePayLogo.astro'
+import GooglePayLogo from '~/components/GooglePayLogo.astro'
+import PaypalLogo from '~/components/PaypalLogo.astro'
 
 interface OrderTypes {
   imageSrc: string
@@ -38,8 +41,8 @@ const orders: OrderTypes[] = [
   <form class="grid grid-cols-1 gap-8 xl:grid-cols-2" action="">
     <div class="bg-gray-25 xl:order-2">
       <div class="md:mx-auto md:w-full md:max-w-[32rem]">
-        <div class="px-4 pt-8">
-          <h3>Order summary</h3>
+        <div class="px-4 pt-8 md:px-0">
+          <h3 class="text-lg font-semibold text-gray-800">Order summary</h3>
 
           <div class="order-summary">
             {
@@ -257,6 +260,44 @@ const orders: OrderTypes[] = [
 
         <section class="flex flex-col gap-6">
           <h3 class="text-lg font-semibold text-gray-800">Payment details</h3>
+
+          <div class="grid grid-cols-3 gap-4">
+            <div class="relative flex items-center justify-center p-2 shadow-xs">
+              <label class="" for="apple-pay">
+                <ApplePayLogo />
+              </label>
+              <input
+                class="absolute inset-0 block cursor-pointer appearance-none"
+                id="apple-pay"
+                name="payment-method"
+                type="radio"
+              />
+            </div>
+
+            <div class="relative flex items-center justify-center p-2 shadow-xs">
+              <label class="" for="google-pay">
+                <GooglePayLogo />
+              </label>
+              <input
+                class="absolute inset-0 block cursor-pointer appearance-none"
+                id="google-pay"
+                name="payment-method"
+                type="radio"
+              />
+            </div>
+
+            <div class="relative flex items-center justify-center p-2 shadow-xs">
+              <label class="" for="paypal">
+                <PaypalLogo />
+              </label>
+              <input
+                class="absolute inset-0 block cursor-pointer appearance-none"
+                id="paypal"
+                name="payment-method"
+                type="radio"
+              />
+            </div>
+          </div>
 
           <div class="flex items-center justify-between gap-2">
             <div class="h-px flex-1 bg-gray-200"></div>
