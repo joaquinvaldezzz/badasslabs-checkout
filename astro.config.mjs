@@ -17,6 +17,7 @@ export default defineConfig({
       CSS: false,
       HTML: {
         'html-minifier-terser': {
+          removeAttributeQuotes: false,
           sortAttributes: false,
           sortClassName: false,
         },
