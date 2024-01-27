@@ -1,0 +1,143 @@
+@import 'tailwindcss/components';
+
+.checkout {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+
+  h3 {
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.semibold');
+    line-height: theme('fontSize.lg[1].lineHeight');
+    color: theme('colors.gray.800');
+  }
+}
+
+.form-section {
+  padding-bottom: theme('padding.8');
+  margin-bottom: theme('margin.8');
+  border-bottom: 1px solid theme('borderColor.gray.200');
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: theme('gap[1.5]');
+
+  &:first-of-type {
+    margin-top: theme('margin.6');
+  }
+}
+
+.form-label {
+  font-size: theme('fontSize.sm');
+  font-weight: theme('fontWeight.medium');
+  line-height: theme('fontSize.sm[1].lineHeight');
+  color: theme('colors.gray.700');
+}
+
+input {
+  @apply rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25;
+}
+
+.order-section {
+  // Save for later
+}
+
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  margin-top: theme('spacing.8');
+
+  > :not(:first-child) {
+    padding-top: theme('spacing.8');
+  }
+
+  > * {
+    padding-bottom: theme('spacing.8');
+  }
+
+  > :not([hidden]) ~ :not([hidden]) {
+    border-color: theme('borderColor.gray.200');
+    border-top-width: theme('divideWidth.DEFAULT');
+  }
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  gap: theme('gap.4');
+  align-items: flex-end;
+}
+
+.order-details {
+  display: flex;
+  gap: theme('gap.4');
+  width: theme('width.full');
+}
+
+.order-image {
+  padding: theme('padding.3');
+  background-color: theme('colors.white');
+  border: 1px solid theme('borderColor.gray.300');
+  border-radius: theme('borderRadius.xl');
+  box-shadow: theme('boxShadow.xs');
+
+  > img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: theme('gap.1');
+}
+
+.order-name {
+  font-weight: theme('fontWeight.medium');
+  color: theme('colors.gray.700');
+}
+
+.order-price,
+.order-list {
+  font-size: theme('fontSize.sm');
+  font-weight: theme('fontWeight.medium');
+  line-height: theme('fontSize.sm[1].lineHeight');
+}
+
+.order-price {
+  color: theme('colors.gray.700');
+}
+
+.order-list {
+  color: theme('colors.gray.500');
+}
+
+.order-options {
+  display: flex;
+  gap: theme('gap.3');
+  align-items: center;
+}
+
+.order-remove {
+  font-size: theme('fontSize.sm');
+  font-weight: theme('fontWeight.semibold');
+  line-height: theme('fontSize.sm[1].lineHeight');
+  color: theme('colors.gray.600');
+}
+
+.order-quantity {
+  padding: theme('spacing[2.5]') 2.625rem theme('spacing[2.5]') 0.875rem;
+  color: theme('colors.gray.500');
+  appearance: none;
+  cursor: pointer;
+  background-image: theme('backgroundImage.chevron-down');
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  background-size: 1.25em;
+  border: 1px solid theme('colors.gray.300');
+  border-radius: theme('borderRadius.lg');
+  box-shadow: theme('boxShadow.xs');
+}

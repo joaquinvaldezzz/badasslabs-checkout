@@ -1,0 +1,29 @@
+@mixin sm {
+  @media (min-width: theme('screens.sm')) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: theme('screens.md')) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: theme('screens.lg')) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: theme('screens.xl')) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: theme('screens.2xl')) {
+    @content;
+  }
+}

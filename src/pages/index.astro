@@ -1,0 +1,188 @@
+---
+import DefaultLayout from '~/layouts/DefaultLayout.astro'
+
+interface OrderTypes {
+  imageSrc: string
+  imageAlt: string
+  name: string
+  price: number
+  list: string[]
+}
+
+const orders: OrderTypes[] = [
+  {
+    imageSrc: '/images/order-image-1.png',
+    imageAlt: 'Order image',
+    name: 'NanoShield Single Set',
+    price: 29.95,
+    list: ['1x NanoShield', '2x Microfiber Cloth'],
+  },
+  {
+    imageSrc: '/images/order-image-2.png',
+    imageAlt: 'Order image',
+    name: 'NanoShield Cloth Set',
+    price: 15.0,
+    list: ['4x branded microfiber wipes'],
+  },
+  {
+    imageSrc: '/images/order-image-3.png',
+    imageAlt: 'Order image',
+    name: 'NanoShield Triple Pack',
+    price: 29.95,
+    list: ['1x NanoShield', '6x branded microfiber cloths'],
+  },
+]
+---
+
+<DefaultLayout title="Badasslabs Checkout">
+  <form class="checkout" action="">
+    <div>
+      <div class="border-b border-b-gray-200 px-4 pt-8">
+        <h3>Order summary</h3>
+
+        <div class="order-summary">
+          {
+            orders.map((order) => (
+              <div class="order-item">
+                <div class="order-details">
+                  <div class="order-image">
+                    <img
+                      src={order.imageSrc}
+                      alt={order.imageAlt}
+                      width="96"
+                      height="96"
+                      decoding="async"
+                    />
+                  </div>
+
+                  <div class="order-info">
+                    <h4 class="order-name">{order.name}</h4>
+                    <p class="order-price">€{order.price}</p>
+                    <ul class="order-list">
+                      {order.list.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="order-options">
+                  <a class="order-remove" href="#">
+                    Remove
+                  </a>
+                  <select class="order-quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="border-b border-b-gray-200 px-4 py-8">
+        <div class="flex flex-col gap-8">
+          <div class="flex w-full items-end gap-3">
+            <div class="flex grow flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-700" for="coupon-code">Coupon code</label>
+              <input
+                class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+                id="coupon-code"
+                type="text"
+              />
+            </div>
+            <button
+              class="shrink-0 rounded-lg border border-brand-600 bg-brand-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:border-brand-700 hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+              type="button"
+            >
+              Apply voucher
+            </button>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Subtotal</p>
+            <p>€107.35</p>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p class="flex items-center gap-2">
+              <span>Discount</span>
+              <span
+                class="rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-700"
+              >
+                20JOAQUIN
+              </span>
+            </p>
+            <p>€96.62</p>
+          </div>
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Shipping fee</p>
+            <p>Free</p>
+          </div>
+
+          <hr class="border-t-gray-200" />
+
+          <div class="flex justify-between text-sm font-semibold text-gray-600">
+            <p>Total</p>
+            <p>€96.62</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 py-8">
+        <button
+          class="block w-full rounded-lg border border-brand-600 bg-brand-600 px-4.5 py-3 text-md font-semibold text-white shadow-xs transition hover:border-brand-700 hover:bg-brand-700 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+          type="button"
+        >
+          Pay €96.62
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div class="px-4 py-8">
+        <section class="form-section">
+          <h3>Contact information</h3>
+          <div class="form-group">
+            <label class="form-label" for="email-address">Email address</label>
+            <input class="form-input" id="email-address" type="email" />
+          </div>
+        </section>
+
+        <section class="form-section flex flex-col gap-6">
+          <h3>Shipping information</h3>
+          <div class="flex flex-col gap-6">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First name</label>
+              <input
+                class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+                id="first-name"
+                type="text"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last name</label>
+              <input
+                class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+                id="last-name"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="company-name">Company name</label>
+            <input
+              class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 shadow-xs transition focus:border-brand-300 focus:outline-none focus:ring-4 focus:ring-brand-500/25"
+              id="company-name"
+              type="text"
+            />
+          </div>
+        </section>
+      </div>
+    </div>
+  </form>
+</DefaultLayout>
