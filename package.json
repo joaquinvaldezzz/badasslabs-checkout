@@ -10,7 +10,8 @@
     "lint": "eslint --ext .js",
     "lint:styles": "stylelint --fix 'src/styles/**/*.scss'",
     "prepare": "husky install",
-    "preview": "astro build && astro preview"
+    "preview": "astro build && astro preview",
+    "watch:css": "tailwindcss -i src/styles/main.css -o dist/assets/main.css --watch"
   },
   "lint-staged": {
     "*.astro": "prettier --write",
