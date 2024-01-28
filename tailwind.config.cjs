@@ -5,6 +5,9 @@ const { blurs, boxShadows, colors, fontSizes } = require('./untitled-ui')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [...files],
+  future: {
+    disableColorOpacityUtilitiesByDefault: true,
+  },
   theme: {
     container: {
       screens: {
